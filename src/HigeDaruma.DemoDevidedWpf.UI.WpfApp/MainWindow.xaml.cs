@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HigeDaruma.DemoDevidedWpf.AppCore.AccountModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,19 +20,27 @@ namespace HigeDaruma.DemoDevidedWpf.UI.WpfApp;
 /// </summary>
 public partial class MainWindow : Window
 {
+    private readonly IAccountRepository _accountRepository;
+
     public MainWindow()
     {
+        _accountRepository = new MockAccountRepository();
+
         InitializeComponent();
 
-        ContentRendered += (s, e) => GetAccount();
+        ContentRendered += async (s, e) => await GetAccount();
     }
 
-    private void GetAccount()
+    /// <summary>
+    /// アカウント情報を取得します
+    /// </summary>
+    /// <returns></returns>
+    private async Task GetAccount()
     {
         Guid id = new("ffffffff-ffff-ffff-ffff-ffffffffffff");
-        string name = "DemoName";
+        Account account = await _accountRepository.ReadAsync(id);
 
-        Id.Text = id.ToString();
-        Name.Text = name;
+        Id.Text = account.Id.ToString();
+        Name.Text = account.Name;
     }
 }
