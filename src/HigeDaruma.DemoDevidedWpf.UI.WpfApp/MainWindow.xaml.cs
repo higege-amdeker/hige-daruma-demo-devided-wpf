@@ -22,5 +22,16 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+
+        ContentRendered += (s, e) => GetAccount();
+    }
+
+    private void GetAccount()
+    {
+        Guid id = new("ffffffff-ffff-ffff-ffff-ffffffffffff");
+        string name = "DemoName";
+
+        Id.Text = id.ToString();
+        Name.Text = name;
     }
 }

@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HigeDaruma.DemoDevidedWpf.UI.WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="250" Width="400">
     <Grid>
-
+        <StackPanel Margin="10">
+            <UniformGrid Rows="1" Margin="10">
+                <TextBlock Text="ID:"/>
+                <TextBlock x:Name="Id"/>
+            </UniformGrid>
+            <UniformGrid Rows="1" Margin="10">
+                <TextBlock Text="Name:"/>
+                <TextBlock x:Name="Name"/>
+            </UniformGrid>
+        </StackPanel>
     </Grid>
 </Window>
