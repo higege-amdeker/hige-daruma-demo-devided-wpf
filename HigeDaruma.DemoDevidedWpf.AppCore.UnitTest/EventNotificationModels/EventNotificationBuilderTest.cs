@@ -186,7 +186,6 @@ public sealed class EventNotificationBuilderTest
     {
         static void testCode()
         {
-            DateTimeOffset start = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
             DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
             string name = "test";
             string bandName = "test";
@@ -207,7 +206,6 @@ public sealed class EventNotificationBuilderTest
         static void testCode()
         {
             DateTimeOffset start = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
-            DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
             string name = "test";
             string bandName = "test";
             EventNotificationBuilder instance = new();
@@ -228,7 +226,6 @@ public sealed class EventNotificationBuilderTest
         {
             DateTimeOffset start = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
             DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
-            string name = "test";
             string bandName = "test";
             EventNotificationBuilder instance = new();
             instance.Start(start);
