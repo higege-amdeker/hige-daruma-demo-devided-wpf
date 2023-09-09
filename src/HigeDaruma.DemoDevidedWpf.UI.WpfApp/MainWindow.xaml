@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HigeDaruma.DemoDevidedWpf.UI.WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="400">
+        Title="MainWindow" Height="350" Width="400">
     <Grid>
         <StackPanel Margin="10">
             <UniformGrid Rows="1" Margin="10">
@@ -16,6 +16,20 @@
                 <TextBlock Text="Name:"/>
                 <TextBlock x:Name="Name"/>
             </UniformGrid>
+            <GroupBox Header="Event">
+                <StackPanel>
+                    <Button x:Name="StartButton" Content="Start" Margin="0 5" Click="StartButton_Click"/>
+                    <UniformGrid Rows="1" Margin="0 5">
+                        <TextBox x:Name="NameTextBox"/>
+                        <Button x:Name="SetNameButton" Content="SetName" Click="SetNameButton_Click"/>
+                    </UniformGrid>
+                    <UniformGrid Rows="1" Margin="0 5">
+                        <TextBox x:Name="BandNameTextBox"/>
+                        <Button x:Name="AddBandNameButton" Content="AddBandName" Click="AddBandNameButton_Click"/>
+                    </UniformGrid>
+                    <Button x:Name="EndButton" Content="End" Margin="0 5" Click="EndButton_Click"/>
+                </StackPanel>
+            </GroupBox>
         </StackPanel>
     </Grid>
 </Window>
