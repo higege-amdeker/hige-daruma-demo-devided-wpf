@@ -6,4 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="HigeDaruma.DemoDevidedWpf.AppCore.UnitTest"/>
+  </ItemGroup>
 </Project>
