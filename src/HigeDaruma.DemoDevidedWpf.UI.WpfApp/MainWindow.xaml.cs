@@ -25,6 +25,8 @@ public partial class MainWindow : Window
 
         NameTextBox.Text = "test";
         BandNameTextBox.Text = "test";
+
+        WindowStartupLocation = WindowStartupLocation.CenterScreen;
     }
 
     /// <summary>
