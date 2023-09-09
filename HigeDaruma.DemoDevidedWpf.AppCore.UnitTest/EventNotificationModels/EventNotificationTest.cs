@@ -3,10 +3,12 @@
 namespace HigeDaruma.DemoDevidedWpf.AppCore.UnitTest.EventNotificationModels;
 
 /// <summary>
-/// <see cref="Event"/>
+/// <see cref="EventNotification"/> の UnitTest です
 /// </summary>
 public sealed class EventNotificationTest
 {
+    // Ctor
+
     [Fact]
     public void Ctor_ReturnsOk_WhenInputIsOk()
     {
@@ -27,5 +29,4 @@ public sealed class EventNotificationTest
         Assert.Equal(name, result.Name);
         Assert.Equal(bandNames, result.BandNames);
     }
-
 }
