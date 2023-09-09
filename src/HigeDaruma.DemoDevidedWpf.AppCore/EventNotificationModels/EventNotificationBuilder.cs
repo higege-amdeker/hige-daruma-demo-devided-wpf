@@ -101,4 +101,15 @@ public sealed class EventNotificationBuilder
 
         return notification;
     }
+
+    /// <summary>
+    /// 現在の <see cref="EventNotification"/> インスタンスからすべての要素を削除します
+    /// </summary>
+    public void Clear()
+    {
+        _startDateTime = DateTimeOffset.MinValue;
+        _endDateTime = DateTimeOffset.MinValue;
+        _name = null;
+        _bandNames.Clear();
+    }
 }

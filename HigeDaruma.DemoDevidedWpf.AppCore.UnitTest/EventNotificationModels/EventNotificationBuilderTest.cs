@@ -240,4 +240,30 @@ public sealed class EventNotificationBuilderTest
 
         Assert.Throws<InvalidOperationException>(testCode);
     }
+
+    // Clear()
+
+    [Fact]
+    public void Clear_OperationIsOk_WhenInstanceIsOk()
+    {
+        static void testCode()
+        {
+            DateTimeOffset start = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
+            DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
+            string name = "test";
+            string bandName = "test";
+            EventNotificationBuilder instance = new();
+            instance.Start(start);
+            instance.End(end);
+            instance.SetName(name);
+            instance.AddBandName(bandName);
+
+            instance.Clear();
+
+            EventNotification result = instance.Build();
+        }
+
+        Assert.Throws<InvalidOperationException>(testCode);
+    }
+
 }
