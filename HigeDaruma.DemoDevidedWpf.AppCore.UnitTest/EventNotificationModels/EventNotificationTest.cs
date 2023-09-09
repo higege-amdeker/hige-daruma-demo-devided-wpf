@@ -7,7 +7,7 @@ namespace HigeDaruma.DemoDevidedWpf.AppCore.UnitTest.EventNotificationModels;
 /// </summary>
 public sealed class EventNotificationTest
 {
-    // Ctor
+    // Ctor()
 
     [Fact]
     public void Ctor_ReturnsOk_WhenInputIsOk()
