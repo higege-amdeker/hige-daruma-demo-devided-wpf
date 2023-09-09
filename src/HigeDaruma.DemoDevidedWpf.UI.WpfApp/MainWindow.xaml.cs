@@ -13,11 +13,12 @@ public partial class MainWindow : Window
 {
     private readonly IAccountRepository _accountRepository;
 
-    private readonly EventNotificationBuilder _eventNotificationBuilder = new();
+    private readonly EventNotificationBuilder _eventNotificationBuilder;
 
     public MainWindow()
     {
         _accountRepository = new MockAccountRepository();
+        _eventNotificationBuilder = new EventNotificationBuilder();
 
         InitializeComponent();
 
