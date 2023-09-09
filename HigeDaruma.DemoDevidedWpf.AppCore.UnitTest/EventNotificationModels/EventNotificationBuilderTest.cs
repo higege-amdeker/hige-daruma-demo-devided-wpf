@@ -180,4 +180,64 @@ public sealed class EventNotificationBuilderTest
         Assert.Equal(name, result.Name);
         Assert.Equal(bandName, result.BandNames.First());
     }
+
+    [Fact]
+    public void Build_InvalidOperationException_WhenInstanceHasNotSetStartDateTime()
+    {
+        static void testCode()
+        {
+            DateTimeOffset start = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
+            DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
+            string name = "test";
+            string bandName = "test";
+            EventNotificationBuilder instance = new();
+            instance.End(end);
+            instance.SetName(name);
+            instance.AddBandName(bandName);
+
+            EventNotification result = instance.Build();
+        }
+
+        Assert.Throws<InvalidOperationException>(testCode);
+    }
+
+    [Fact]
+    public void Build_InvalidOperationException_WhenInstanceHasNotSetEndDateTime()
+    {
+        static void testCode()
+        {
+            DateTimeOffset start = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
+            DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
+            string name = "test";
+            string bandName = "test";
+            EventNotificationBuilder instance = new();
+            instance.Start(start);
+            instance.SetName(name);
+            instance.AddBandName(bandName);
+
+            EventNotification result = instance.Build();
+        }
+
+        Assert.Throws<InvalidOperationException>(testCode);
+    }
+
+    [Fact]
+    public void Build_InvalidOperationException_WhenInstanceHasNotSetName()
+    {
+        static void testCode()
+        {
+            DateTimeOffset start = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
+            DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
+            string name = "test";
+            string bandName = "test";
+            EventNotificationBuilder instance = new();
+            instance.Start(start);
+            instance.End(end);
+            instance.AddBandName(bandName);
+
+            EventNotification result = instance.Build();
+        }
+
+        Assert.Throws<InvalidOperationException>(testCode);
+    }
 }
