@@ -15,6 +15,9 @@ public partial class MainWindow : Window
 
     private readonly EventNotificationBuilder _eventNotificationBuilder;
 
+    /// <summary>
+    /// コンストラクター
+    /// </summary>
     public MainWindow()
     {
         _accountRepository = new MockAccountRepository();
