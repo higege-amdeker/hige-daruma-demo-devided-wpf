@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\HigeDaruma.DemoDevidedWpf.AppCore\HigeDaruma.DemoDevidedWpf.AppCore.csproj" />
+    <ProjectReference Include="..\..\src\HigeDaruma.DemoDevidedWpf.AppCore\HigeDaruma.DemoDevidedWpf.AppCore.csproj" />
   </ItemGroup>
 
 </Project>
