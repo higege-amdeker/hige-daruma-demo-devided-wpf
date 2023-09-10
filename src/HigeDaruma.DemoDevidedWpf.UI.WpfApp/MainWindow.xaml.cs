@@ -1,5 +1,5 @@
 ﻿using HigeDaruma.DemoDevidedWpf.AppCore.AccountModels;
-using HigeDaruma.DemoDevidedWpf.AppCore.EventNotificationModels;
+using HigeDaruma.DemoDevidedWpf.AppCore.LiveEventModels;
 using System;
 using System.Linq;
 using System.Threading;
@@ -15,7 +15,7 @@ public partial class MainWindow : Window
 {
     private readonly IAccountRepository _accountRepository;
 
-    private readonly EventNotificationBuilder _eventNotificationBuilder;
+    private readonly LiveEventBuilder _liveEventBuilder;
 
     private readonly DispatcherTimer _visibleTimer = new();
 
@@ -25,7 +25,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         _accountRepository = new MockAccountRepository();
-        _eventNotificationBuilder = new EventNotificationBuilder();
+        _liveEventBuilder = new LiveEventBuilder();
 
         InitializeComponent();
 
@@ -65,11 +65,11 @@ public partial class MainWindow : Window
         {
             DateTimeOffset now = DateTimeOffset.Now;
 
-            _eventNotificationBuilder.Start(now);
+            _liveEventBuilder.Start(now);
         }
         catch (Exception ex)
         {
-            _eventNotificationBuilder.Clear();
+            _liveEventBuilder.Clear();
             MessageBox.Show(ex.Message);
         }
     }
@@ -80,11 +80,11 @@ public partial class MainWindow : Window
         {
             string name = NameTextBox.Text;
 
-            _eventNotificationBuilder.SetName(name);
+            _liveEventBuilder.SetName(name);
         }
         catch (Exception ex)
         {
-            _eventNotificationBuilder.Clear();
+            _liveEventBuilder.Clear();
             MessageBox.Show(ex.Message);
         }
     }
@@ -95,11 +95,11 @@ public partial class MainWindow : Window
         {
             string bandName = BandNameTextBox.Text;
 
-            _eventNotificationBuilder.AddBandName(bandName);
+            _liveEventBuilder.AddBandName(bandName);
         }
         catch (Exception ex)
         {
-            _eventNotificationBuilder.Clear();
+            _liveEventBuilder.Clear();
             MessageBox.Show(ex.Message);
         }
     }
@@ -110,25 +110,25 @@ public partial class MainWindow : Window
         {
             DateTimeOffset now = DateTimeOffset.Now;
 
-            _eventNotificationBuilder.End(now);
+            _liveEventBuilder.End(now);
 
-            EventNotification eventNotification = _eventNotificationBuilder.Build();
-            string bandNames = eventNotification.BandNames.Count <= 0
+            LiveEvent liveEvent = _liveEventBuilder.Build();
+            string bandNames = liveEvent.BandNames.Count <= 0
                 ? "Empty"
-                : eventNotification.BandNames.Aggregate((x, y) => x + "," + y);
+                : liveEvent.BandNames.Aggregate((x, y) => x + "," + y);
             string message =
-$@"{eventNotification.StartDateTime}
-{eventNotification.EndDateTime}
-{eventNotification.Name}
+$@"{liveEvent.StartDateTime}
+{liveEvent.EndDateTime}
+{liveEvent.Name}
 {bandNames}";
 
             MessageBox.Show(message);
 
-            _eventNotificationBuilder.Clear();
+            _liveEventBuilder.Clear();
         }
         catch (Exception ex)
         {
-            _eventNotificationBuilder.Clear();
+            _liveEventBuilder.Clear();
             MessageBox.Show(ex.Message);
         }
     }

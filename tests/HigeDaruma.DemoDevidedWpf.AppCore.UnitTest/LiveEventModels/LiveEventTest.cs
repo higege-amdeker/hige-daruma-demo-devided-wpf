@@ -1,11 +1,11 @@
-﻿using HigeDaruma.DemoDevidedWpf.AppCore.EventNotificationModels;
+﻿using HigeDaruma.DemoDevidedWpf.AppCore.LiveEventModels;
 
-namespace HigeDaruma.DemoDevidedWpf.AppCore.UnitTest.EventNotificationModels;
+namespace HigeDaruma.DemoDevidedWpf.AppCore.UnitTest.LiveEventModels;
 
 /// <summary>
-/// <see cref="EventNotification"/> の UnitTest です
+/// <see cref="LiveEvent"/> の UnitTest です
 /// </summary>
-public sealed class EventNotificationTest
+public sealed class LiveEventTest
 {
     // Ctor()
 
@@ -21,7 +21,7 @@ public sealed class EventNotificationTest
             "FixedCycles",
         };
 
-        EventNotification result = new(startDateTime, endDateTime, name, bandNames);
+        LiveEvent result = new(startDateTime, endDateTime, name, bandNames);
 
         Assert.NotNull(result);
         Assert.Equal(startDateTime, result.StartDateTime);

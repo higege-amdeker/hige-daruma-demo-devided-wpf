@@ -1,9 +1,9 @@
-﻿namespace HigeDaruma.DemoDevidedWpf.AppCore.EventNotificationModels;
+﻿namespace HigeDaruma.DemoDevidedWpf.AppCore.LiveEventModels;
 
 /// <summary>
-/// <see cref="EventNotification"/> の構築ロジックを提供します
+/// <see cref="LiveEvent"/> の構築ロジックを提供します
 /// </summary>
-public sealed class EventNotificationBuilder
+public sealed class LiveEventBuilder
 {
     private DateTimeOffset _startDateTime = DateTimeOffset.MinValue;
     private DateTimeOffset _endDateTime = DateTimeOffset.MinValue;
@@ -13,7 +13,7 @@ public sealed class EventNotificationBuilder
     /// <summary>
     /// コンストラクター
     /// </summary>
-    public EventNotificationBuilder()
+    public LiveEventBuilder()
     {
     }
 
@@ -78,11 +78,11 @@ public sealed class EventNotificationBuilder
     }
 
     /// <summary>
-    /// <see cref="EventNotification"/> を構築します
+    /// <see cref="LiveEvent"/> を構築します
     /// </summary>
     /// <returns></returns>
     /// <exception cref="InvalidOperationException"></exception>
-    public EventNotification Build()
+    public LiveEvent Build()
     {
         if (_startDateTime == DateTimeOffset.MinValue)
             throw new InvalidOperationException($"{nameof(_startDateTime)} が設定されていません。");
@@ -93,17 +93,17 @@ public sealed class EventNotificationBuilder
         if (_name is null)
             throw new InvalidOperationException($"{nameof(_name)} が設定されていません。");
 
-        EventNotification notification = new(
+        LiveEvent liveEvent = new(
             _startDateTime,
             _endDateTime,
             _name,
             _bandNames);
 
-        return notification;
+        return liveEvent;
     }
 
     /// <summary>
-    /// 現在の <see cref="EventNotification"/> インスタンスからすべての要素を削除します
+    /// 現在の <see cref="LiveEvent"/> インスタンスからすべての要素を削除します
     /// </summary>
     public void Clear()
     {

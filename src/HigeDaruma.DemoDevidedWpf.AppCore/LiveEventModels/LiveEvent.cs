@@ -1,11 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace HigeDaruma.DemoDevidedWpf.AppCore.EventNotificationModels;
+namespace HigeDaruma.DemoDevidedWpf.AppCore.LiveEventModels;
 
 /// <summary>
-/// イベント通知を表現する DomainObject です
+/// ライブイベントを表現する DomainObject です
 /// </summary>
-public sealed class EventNotification
+public sealed class LiveEvent
 {
     /// <summary>
     /// イベントの開始日時
@@ -34,7 +34,7 @@ public sealed class EventNotification
     /// <param name="endDateTime"></param>
     /// <param name="name"></param>
     /// <param name="bandNames"></param>
-    internal EventNotification(
+    internal LiveEvent(
         DateTimeOffset startDateTime,
         DateTimeOffset endDateTime,
         string name,
@@ -47,7 +47,7 @@ public sealed class EventNotification
     }
 
     /// <summary>
-    /// イベントに参加するバンド名の一覧の公開用プロパティ
+    /// ライブイベントに参加するバンド名の一覧の公開用プロパティ
     /// </summary>
     public ReadOnlyCollection<string> BandNames => _bandNames.AsReadOnly();
 }

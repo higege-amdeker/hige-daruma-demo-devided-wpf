@@ -1,18 +1,18 @@
-﻿using HigeDaruma.DemoDevidedWpf.AppCore.EventNotificationModels;
+﻿using HigeDaruma.DemoDevidedWpf.AppCore.LiveEventModels;
 
-namespace HigeDaruma.DemoDevidedWpf.AppCore.UnitTest.EventNotificationModels;
+namespace HigeDaruma.DemoDevidedWpf.AppCore.UnitTest.LiveEventModels;
 
 /// <summary>
-/// <see cref="EventNotificationBuilder"/> の UnitTest です
+/// <see cref="LiveEventBuilder"/> の UnitTest です
 /// </summary>
-public sealed class EventNotificationBuilderTest
+public sealed class LiveEventBuilderTest
 {
     // Ctor()
 
     [Fact]
     public void Ctor_ReturnsOk()
     {
-        EventNotificationBuilder result = new();
+        LiveEventBuilder result = new();
 
         Assert.NotNull(result);
     }
@@ -24,7 +24,7 @@ public sealed class EventNotificationBuilderTest
     {
         static void testCode()
         {
-            EventNotificationBuilder instance = new();
+            LiveEventBuilder instance = new();
             DateTimeOffset start = DateTimeOffset.MinValue;
             instance.Start(start);
         }
@@ -37,7 +37,7 @@ public sealed class EventNotificationBuilderTest
     {
         static void testCode()
         {
-            EventNotificationBuilder instance = new();
+            LiveEventBuilder instance = new();
             DateTimeOffset start = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
             instance.Start(start);
             instance.Start(start);
@@ -53,7 +53,7 @@ public sealed class EventNotificationBuilderTest
     {
         static void testCode()
         {
-            EventNotificationBuilder instance = new();
+            LiveEventBuilder instance = new();
             DateTimeOffset end = DateTimeOffset.MinValue;
             instance.End(end);
         }
@@ -66,7 +66,7 @@ public sealed class EventNotificationBuilderTest
     {
         static void testCode()
         {
-            EventNotificationBuilder instance = new();
+            LiveEventBuilder instance = new();
             DateTimeOffset end = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
             instance.End(end);
             instance.End(end);
@@ -82,7 +82,7 @@ public sealed class EventNotificationBuilderTest
     {
         static void testCode()
         {
-            EventNotificationBuilder instance = new();
+            LiveEventBuilder instance = new();
             string? name = null;
             instance.SetName(name!);
         }
@@ -95,7 +95,7 @@ public sealed class EventNotificationBuilderTest
     {
         static void testCode()
         {
-            EventNotificationBuilder instance = new();
+            LiveEventBuilder instance = new();
             string name = string.Empty;
             instance.SetName(name);
         }
@@ -108,7 +108,7 @@ public sealed class EventNotificationBuilderTest
     {
         static void testCode()
         {
-            EventNotificationBuilder instance = new();
+            LiveEventBuilder instance = new();
             string name = " ";
             instance.SetName(name);
         }
@@ -123,7 +123,7 @@ public sealed class EventNotificationBuilderTest
     {
         static void testCode()
         {
-            EventNotificationBuilder instance = new();
+            LiveEventBuilder instance = new();
             string? bandName = null;
             instance.AddBandName(bandName!);
         }
@@ -136,7 +136,7 @@ public sealed class EventNotificationBuilderTest
     {
         static void testCode()
         {
-            EventNotificationBuilder instance = new();
+            LiveEventBuilder instance = new();
             string bandName = string.Empty;
             instance.AddBandName(bandName);
         }
@@ -149,7 +149,7 @@ public sealed class EventNotificationBuilderTest
     {
         static void testCode()
         {
-            EventNotificationBuilder instance = new();
+            LiveEventBuilder instance = new();
             string bandName = " ";
             instance.AddBandName(bandName);
         }
@@ -166,13 +166,13 @@ public sealed class EventNotificationBuilderTest
         DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
         string name = "test";
         string bandName = "test";
-        EventNotificationBuilder instance = new();
+        LiveEventBuilder instance = new();
         instance.Start(start);
         instance.End(end);
         instance.SetName(name);
         instance.AddBandName(bandName);
 
-        EventNotification result = instance.Build();
+        LiveEvent result = instance.Build();
 
         Assert.NotNull(result);
         Assert.Equal(start, result.StartDateTime);
@@ -189,12 +189,12 @@ public sealed class EventNotificationBuilderTest
             DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
             string name = "test";
             string bandName = "test";
-            EventNotificationBuilder instance = new();
+            LiveEventBuilder instance = new();
             instance.End(end);
             instance.SetName(name);
             instance.AddBandName(bandName);
 
-            EventNotification result = instance.Build();
+            LiveEvent result = instance.Build();
         }
 
         Assert.Throws<InvalidOperationException>(testCode);
@@ -208,12 +208,12 @@ public sealed class EventNotificationBuilderTest
             DateTimeOffset start = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
             string name = "test";
             string bandName = "test";
-            EventNotificationBuilder instance = new();
+            LiveEventBuilder instance = new();
             instance.Start(start);
             instance.SetName(name);
             instance.AddBandName(bandName);
 
-            EventNotification result = instance.Build();
+            LiveEvent result = instance.Build();
         }
 
         Assert.Throws<InvalidOperationException>(testCode);
@@ -227,12 +227,12 @@ public sealed class EventNotificationBuilderTest
             DateTimeOffset start = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
             DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
             string bandName = "test";
-            EventNotificationBuilder instance = new();
+            LiveEventBuilder instance = new();
             instance.Start(start);
             instance.End(end);
             instance.AddBandName(bandName);
 
-            EventNotification result = instance.Build();
+            LiveEvent result = instance.Build();
         }
 
         Assert.Throws<InvalidOperationException>(testCode);
@@ -249,7 +249,7 @@ public sealed class EventNotificationBuilderTest
             DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
             string name = "test";
             string bandName = "test";
-            EventNotificationBuilder instance = new();
+            LiveEventBuilder instance = new();
             instance.Start(start);
             instance.End(end);
             instance.SetName(name);
@@ -257,7 +257,7 @@ public sealed class EventNotificationBuilderTest
 
             instance.Clear();
 
-            EventNotification result = instance.Build();
+            LiveEvent result = instance.Build();
         }
 
         Assert.Throws<InvalidOperationException>(testCode);
