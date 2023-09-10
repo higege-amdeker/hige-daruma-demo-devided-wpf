@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HigeDaruma.DemoDevidedWpf.UI.WpfApp", "src\HigeDaruma.DemoDevidedWpf.UI.WpfApp\HigeDaruma.DemoDevidedWpf.UI.WpfApp.csproj", "{012DAB8C-09F8-421D-A9D4-CB18A009A5C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HigeDaruma.DemoDevidedWpf.UI.WpfApp", "src\HigeDaruma.DemoDevidedWpf.UI.WpfApp\HigeDaruma.DemoDevidedWpf.UI.WpfApp.csproj", "{012DAB8C-09F8-421D-A9D4-CB18A009A5C8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C64A3E47-67EB-4FB5-B25F-134E61704C57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HigeDaruma.DemoDevidedWpf.AppCore", "src\HigeDaruma.DemoDevidedWpf.AppCore\HigeDaruma.DemoDevidedWpf.AppCore.csproj", "{F095C9F9-81A9-4ED8-A8D5-F4B25FAA3065}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HigeDaruma.DemoDevidedWpf.AppCore", "src\HigeDaruma.DemoDevidedWpf.AppCore\HigeDaruma.DemoDevidedWpf.AppCore.csproj", "{F095C9F9-81A9-4ED8-A8D5-F4B25FAA3065}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B831AE79-9FA4-49BE-B902-D48CA3E5E935}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HigeDaruma.DemoDevidedWpf.AppCore.UnitTest", "HigeDaruma.DemoDevidedWpf.AppCore.UnitTest\HigeDaruma.DemoDevidedWpf.AppCore.UnitTest.csproj", "{BEC8DB48-92BA-4805-AA06-C3B025F0E474}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HigeDaruma.DemoDevidedWpf.AppCore.UnitTest", "tests\HigeDaruma.DemoDevidedWpf.AppCore.UnitTest\HigeDaruma.DemoDevidedWpf.AppCore.UnitTest.csproj", "{A5C9F6FC-0D34-458A-B388-48E52D1578D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +27,10 @@ Global
 		{F095C9F9-81A9-4ED8-A8D5-F4B25FAA3065}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F095C9F9-81A9-4ED8-A8D5-F4B25FAA3065}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F095C9F9-81A9-4ED8-A8D5-F4B25FAA3065}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BEC8DB48-92BA-4805-AA06-C3B025F0E474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BEC8DB48-92BA-4805-AA06-C3B025F0E474}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BEC8DB48-92BA-4805-AA06-C3B025F0E474}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BEC8DB48-92BA-4805-AA06-C3B025F0E474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5C9F6FC-0D34-458A-B388-48E52D1578D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5C9F6FC-0D34-458A-B388-48E52D1578D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5C9F6FC-0D34-458A-B388-48E52D1578D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5C9F6FC-0D34-458A-B388-48E52D1578D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,7 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{012DAB8C-09F8-421D-A9D4-CB18A009A5C8} = {C64A3E47-67EB-4FB5-B25F-134E61704C57}
 		{F095C9F9-81A9-4ED8-A8D5-F4B25FAA3065} = {C64A3E47-67EB-4FB5-B25F-134E61704C57}
-		{BEC8DB48-92BA-4805-AA06-C3B025F0E474} = {B831AE79-9FA4-49BE-B902-D48CA3E5E935}
+		{A5C9F6FC-0D34-458A-B388-48E52D1578D5} = {B831AE79-9FA4-49BE-B902-D48CA3E5E935}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {255B1CA9-D684-4B43-8282-FEFFF117F2E6}
