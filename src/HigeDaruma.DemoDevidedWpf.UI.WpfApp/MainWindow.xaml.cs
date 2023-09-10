@@ -2,8 +2,10 @@
 using HigeDaruma.DemoDevidedWpf.AppCore.EventNotificationModels;
 using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace HigeDaruma.DemoDevidedWpf.UI.WpfApp;
 /// <summary>
@@ -14,6 +16,8 @@ public partial class MainWindow : Window
     private readonly IAccountRepository _accountRepository;
 
     private readonly EventNotificationBuilder _eventNotificationBuilder;
+
+    private readonly DispatcherTimer _visibleTimer = new();
 
     /// <summary>
     /// コンストラクター
@@ -30,7 +34,16 @@ public partial class MainWindow : Window
         NameTextBox.Text = "test";
         BandNameTextBox.Text = "test";
 
+        // 画面中央に表示
         WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+        // 非表示で開始
+        Visibility = Visibility.Hidden;
+
+        // 起動から一定時間経過後に表示するためのタイマー
+        _visibleTimer.Interval = TimeSpan.FromSeconds(5);
+        _visibleTimer.Tick += OnVisibleTimer;
+        _visibleTimer.Start();
     }
 
     /// <summary>
@@ -118,5 +131,12 @@ $@"{eventNotification.StartDateTime}
             _eventNotificationBuilder.Clear();
             MessageBox.Show(ex.Message);
         }
+    }
+
+    private void OnVisibleTimer(object? sender, EventArgs e)
+    {
+        Visibility = Visibility.Visible;
+
+        _visibleTimer.Stop();
     }
 }
