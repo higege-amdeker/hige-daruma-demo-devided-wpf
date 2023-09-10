@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HigeDaruma.DemoDevidedWpf.UI.WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="400">
+        Title="MainWindow" Height="350" Width="400" ShowInTaskbar="False">
     <Grid>
         <StackPanel Margin="10">
             <UniformGrid Rows="1" Margin="10">
