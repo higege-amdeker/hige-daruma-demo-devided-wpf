@@ -5,6 +5,7 @@
 /// </summary>
 public sealed class LiveEventBuilder
 {
+    // 一時的に保持しておくパラメーター
     private DateTimeOffset _startDateTime = DateTimeOffset.MinValue;
     private DateTimeOffset _endDateTime = DateTimeOffset.MinValue;
     private string? _name;
