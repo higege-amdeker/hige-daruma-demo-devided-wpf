@@ -17,8 +17,6 @@ public partial class MainWindow : Window
 
     private readonly LiveEventBuilder _liveEventBuilder;
 
-    private readonly DispatcherTimer _visibleTimer = new();
-
     /// <summary>
     /// コンストラクター
     /// </summary>
@@ -36,14 +34,6 @@ public partial class MainWindow : Window
 
         // 画面中央に表示
         WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-        // 非表示で開始
-        Visibility = Visibility.Hidden;
-
-        // 起動から一定時間経過後に表示するためのタイマー
-        _visibleTimer.Interval = TimeSpan.FromSeconds(5);
-        _visibleTimer.Tick += OnVisibleTimer;
-        _visibleTimer.Start();
     }
 
     /// <summary>
@@ -131,12 +121,5 @@ $@"{liveEvent.StartDateTime}
             _liveEventBuilder.Clear();
             MessageBox.Show(ex.Message);
         }
-    }
-
-    private void OnVisibleTimer(object? sender, EventArgs e)
-    {
-        Visibility = Visibility.Visible;
-
-        _visibleTimer.Stop();
     }
 }
