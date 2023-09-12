@@ -35,4 +35,32 @@ public sealed class BandTest
 
         Assert.Throws<ArgumentNullException>(testCode);
     }
+
+    [Fact]
+    public void Ctor_ThrowsArgumentException_WhenInputNumberOfMembersIsOkButNameIsEmpty()
+    {
+        static void testCode()
+        {
+            string name = string.Empty;
+            int numberOfMembers = 3;
+
+            Band result = new(name, numberOfMembers);
+        }
+
+        Assert.Throws<ArgumentException>(testCode);
+    }
+
+    [Fact]
+    public void Ctor_ThrowsArgumentException_WhenInputNumberOfMembersIsOkButNameIsWhiteSpace()
+    {
+        static void testCode()
+        {
+            string name = " ";
+            int numberOfMembers = 3;
+
+            Band result = new(name, numberOfMembers);
+        }
+
+        Assert.Throws<ArgumentException>(testCode);
+    }
 }

@@ -25,6 +25,9 @@ public sealed class Band
         if (name is null)
             throw new ArgumentNullException(nameof(name));
 
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException("Empty, White space ではいけません。", nameof(name));
+
         Name = name;
         NumberOfMembers = numberOfMembers;
     }
