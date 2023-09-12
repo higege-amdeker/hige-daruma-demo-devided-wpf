@@ -63,4 +63,18 @@ public sealed class BandTest
 
         Assert.Throws<ArgumentException>(testCode);
     }
+
+    [Fact]
+    public void Ctor_ThrowsArgumentOutOfRangeException_WhenInputNameIsOkButNumberOfMembersIsZero()
+    {
+        static void testCode()
+        {
+            string name = "test";
+            int numberOfMembers = 0;
+
+            Band result = new(name, numberOfMembers);
+        }
+
+        Assert.Throws<ArgumentOutOfRangeException>(testCode);
+    }
 }
