@@ -12,8 +12,13 @@ public sealed class BandTest
     [Fact]
     public void Ctor_ReturnsOk()
     {
-        Band result = new();
+        string name = "test";
+        int numberOfMembers = 3;
+
+        Band result = new(name, numberOfMembers);
 
         Assert.NotNull(result);
+        Assert.Equal(name, result.Name);
+        Assert.Equal(numberOfMembers, result.NumberOfMembers);
     }
 }
