@@ -21,4 +21,18 @@ public sealed class BandTest
         Assert.Equal(name, result.Name);
         Assert.Equal(numberOfMembers, result.NumberOfMembers);
     }
+
+    [Fact]
+    public void Ctor_ThrowsArgumentNullException_WhenInputNumberOfMembersIsOkButNameIsNull()
+    {
+        static void testCode()
+        {
+            string? name = null;
+            int numberOfMembers = 3;
+
+            Band result = new(name!, numberOfMembers);
+        }
+
+        Assert.Throws<ArgumentNullException>(testCode);
+    }
 }

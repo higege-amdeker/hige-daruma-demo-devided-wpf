@@ -22,6 +22,9 @@ public sealed class Band
     /// <param name="numberOfMembers"></param>
     public Band(string name, int numberOfMembers)
     {
+        if (name is null)
+            throw new ArgumentNullException(nameof(name));
+
         Name = name;
         NumberOfMembers = numberOfMembers;
     }
