@@ -61,7 +61,7 @@ public partial class MainWindow : Window
         catch (Exception ex)
         {
             _liveEventBuilder.Clear();
-            MessageBox.Show(ex.Message);
+            _ = ShowErrorMessageBox(ex);
         }
     }
 
@@ -76,7 +76,7 @@ public partial class MainWindow : Window
         catch (Exception ex)
         {
             _liveEventBuilder.Clear();
-            MessageBox.Show(ex.Message);
+            _ = ShowErrorMessageBox(ex);
         }
     }
 
@@ -93,7 +93,7 @@ public partial class MainWindow : Window
         catch (Exception ex)
         {
             _liveEventBuilder.Clear();
-            MessageBox.Show(ex.Message);
+            _ = ShowErrorMessageBox(ex);
         }
     }
 
