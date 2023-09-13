@@ -110,12 +110,13 @@ public partial class MainWindow : Window
                 ? "Empty"
                 : liveEvent.Bands.Select(x => x.Name).Aggregate((x, y) => x + "," + y);
             string message =
-$@"{liveEvent.StartDateTime}
-{liveEvent.EndDateTime}
-{liveEvent.Name}
-{bandNames}";
+$@"Start: {liveEvent.StartDateTime}
+End: {liveEvent.EndDateTime}
+Name: {liveEvent.Name}
+Bands: {bandNames}";
+            string caption = "Live event";
 
-            MessageBox.Show(message);
+            MessageBox.Show(message, caption);
 
             _liveEventBuilder.Clear();
         }
