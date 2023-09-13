@@ -123,7 +123,7 @@ Bands: {bandNames}";
         catch (Exception ex)
         {
             _liveEventBuilder.Clear();
-            MessageBox.Show(ex.Message);
+            _ = ShowErrorMessageBox(ex);
         }
     }
 
@@ -140,5 +140,10 @@ Bands: {bandNames}";
         {
             e.Handled = true;
         }
+    }
+
+    private static MessageBoxResult ShowErrorMessageBox(Exception ex)
+    {
+        return MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
     }
 }
