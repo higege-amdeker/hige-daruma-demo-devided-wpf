@@ -25,7 +25,11 @@
                     </UniformGrid>
                     <UniformGrid Rows="1" Margin="0 5">
                         <TextBox x:Name="BandNameTextBox"/>
-                        <Button x:Name="AddBandNameButton" Content="AddBandName" Click="AddBandNameButton_Click"/>
+                        <TextBox x:Name="BandNumberOfMemberTextBox"
+                                 InputMethod.IsInputMethodEnabled="False"
+                                 PreviewTextInput="BandNumberOfMemberTextBox_PreviewTextInput"
+                                 CommandManager.PreviewExecuted="BandNumberOfMemberTextBox_PreviewExecuted"/>
+                        <Button x:Name="AddBandButton" Content="AddBand" Click="AddBandButton_Click"/>
                     </UniformGrid>
                     <Button x:Name="EndButton" Content="End" Margin="0 5" Click="EndButton_Click"/>
                 </StackPanel>

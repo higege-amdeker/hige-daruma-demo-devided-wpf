@@ -116,45 +116,19 @@ public sealed class LiveEventBuilderTest
         Assert.Throws<ArgumentException>(testCode);
     }
 
-    // AddBandName(string)
+    // AddBand(string)
 
     [Fact]
-    public void AddBandName_ThrowsArgumentException_WhenInstanceIsOkButInputNameIsNull()
+    public void AddBand_ThrowsArgumentException_WhenInstanceIsOkButInputBandIsNull()
     {
         static void testCode()
         {
             LiveEventBuilder instance = new();
-            string? bandName = null;
-            instance.AddBandName(bandName!);
+            Band? band = null;
+            instance.AddBand(band!);
         }
 
-        Assert.Throws<ArgumentException>(testCode);
-    }
-
-    [Fact]
-    public void AddBandName_ThrowsArgumentException_WhenInstanceIsOkButInputNameIsEmpty()
-    {
-        static void testCode()
-        {
-            LiveEventBuilder instance = new();
-            string bandName = string.Empty;
-            instance.AddBandName(bandName);
-        }
-
-        Assert.Throws<ArgumentException>(testCode);
-    }
-
-    [Fact]
-    public void AddBandName_ThrowsArgumentException_WhenInstanceIsOkButInputNameIsWhiteSpace()
-    {
-        static void testCode()
-        {
-            LiveEventBuilder instance = new();
-            string bandName = " ";
-            instance.AddBandName(bandName);
-        }
-
-        Assert.Throws<ArgumentException>(testCode);
+        Assert.Throws<ArgumentNullException>(testCode);
     }
 
     // Build()
@@ -165,12 +139,12 @@ public sealed class LiveEventBuilderTest
         DateTimeOffset start = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
         DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
         string name = "test";
-        string bandName = "test";
+        Band band = new("test", 3);
         LiveEventBuilder instance = new();
         instance.Start(start);
         instance.End(end);
         instance.SetName(name);
-        instance.AddBandName(bandName);
+        instance.AddBand(band);
 
         LiveEvent result = instance.Build();
 
@@ -178,7 +152,7 @@ public sealed class LiveEventBuilderTest
         Assert.Equal(start, result.StartDateTime);
         Assert.Equal(end, result.EndDateTime);
         Assert.Equal(name, result.Name);
-        Assert.Equal(bandName, result.BandNames.First());
+        Assert.Equal(band, result.Bands.First());
     }
 
     [Fact]
@@ -188,11 +162,11 @@ public sealed class LiveEventBuilderTest
         {
             DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
             string name = "test";
-            string bandName = "test";
+            Band band = new("test", 3);
             LiveEventBuilder instance = new();
             instance.End(end);
             instance.SetName(name);
-            instance.AddBandName(bandName);
+            instance.AddBand(band);
 
             LiveEvent result = instance.Build();
         }
@@ -207,11 +181,11 @@ public sealed class LiveEventBuilderTest
         {
             DateTimeOffset start = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
             string name = "test";
-            string bandName = "test";
+            Band band = new("test", 3);
             LiveEventBuilder instance = new();
             instance.Start(start);
             instance.SetName(name);
-            instance.AddBandName(bandName);
+            instance.AddBand(band);
 
             LiveEvent result = instance.Build();
         }
@@ -226,11 +200,11 @@ public sealed class LiveEventBuilderTest
         {
             DateTimeOffset start = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
             DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
-            string bandName = "test";
+            Band band = new("test", 3);
             LiveEventBuilder instance = new();
             instance.Start(start);
             instance.End(end);
-            instance.AddBandName(bandName);
+            instance.AddBand(band);
 
             LiveEvent result = instance.Build();
         }
@@ -248,12 +222,12 @@ public sealed class LiveEventBuilderTest
             DateTimeOffset start = new(2023, 9, 9, 12, 0, 0, new TimeSpan(0));
             DateTimeOffset end = new(2023, 9, 10, 12, 0, 0, new TimeSpan(0));
             string name = "test";
-            string bandName = "test";
+            Band band = new("test", 3);
             LiveEventBuilder instance = new();
             instance.Start(start);
             instance.End(end);
             instance.SetName(name);
-            instance.AddBandName(bandName);
+            instance.AddBand(band);
 
             instance.Clear();
 

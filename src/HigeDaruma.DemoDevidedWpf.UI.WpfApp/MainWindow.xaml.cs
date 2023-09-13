@@ -2,9 +2,11 @@
 using HigeDaruma.DemoDevidedWpf.AppCore.LiveEventModels;
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Threading;
 
 namespace HigeDaruma.DemoDevidedWpf.UI.WpfApp;
@@ -79,13 +81,15 @@ public partial class MainWindow : Window
         }
     }
 
-    private void AddBandNameButton_Click(object sender, RoutedEventArgs e)
+    private void AddBandButton_Click(object sender, RoutedEventArgs e)
     {
         try
         {
             string bandName = BandNameTextBox.Text;
+            int numberOfBandMember = int.Parse(BandNumberOfMemberTextBox.Text);
+            Band band = new(bandName, numberOfBandMember);
 
-            _liveEventBuilder.AddBandName(bandName);
+            _liveEventBuilder.AddBand(band);
         }
         catch (Exception ex)
         {
@@ -103,9 +107,9 @@ public partial class MainWindow : Window
             _liveEventBuilder.End(now);
 
             LiveEvent liveEvent = _liveEventBuilder.Build();
-            string bandNames = liveEvent.BandNames.Count <= 0
+            string bandNames = liveEvent.Bands.Count <= 0
                 ? "Empty"
-                : liveEvent.BandNames.Aggregate((x, y) => x + "," + y);
+                : liveEvent.Bands.Select(x => x.Name).Aggregate((x, y) => x + "," + y);
             string message =
 $@"{liveEvent.StartDateTime}
 {liveEvent.EndDateTime}
@@ -120,6 +124,21 @@ $@"{liveEvent.StartDateTime}
         {
             _liveEventBuilder.Clear();
             MessageBox.Show(ex.Message);
+        }
+    }
+
+    private void BandNumberOfMemberTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+    {
+        // 0-9のみ
+        e.Handled = !new Regex("[0-9]").IsMatch(e.Text);
+    }
+
+    private void BandNumberOfMemberTextBox_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
+    {
+        // 貼り付けを許可しない
+        if (e.Command == ApplicationCommands.Paste)
+        {
+            e.Handled = true;
         }
     }
 }

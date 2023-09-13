@@ -15,18 +15,18 @@ public sealed class LiveEventTest
         DateTimeOffset startDateTime = DateTimeOffset.Now;
         DateTimeOffset endDateTime = startDateTime.AddDays(1);
         string name = "Live 2023";
-        List<string> bandNames = new()
+        List<Band> bands = new()
         {
-            "test",
-            "FixedCycles",
+            new Band("test", 3),
+            new Band("FixedCycles", 2),
         };
 
-        LiveEvent result = new(startDateTime, endDateTime, name, bandNames);
+        LiveEvent result = new(startDateTime, endDateTime, name, bands);
 
         Assert.NotNull(result);
         Assert.Equal(startDateTime, result.StartDateTime);
         Assert.Equal(endDateTime, result.EndDateTime);
         Assert.Equal(name, result.Name);
-        Assert.Equal(bandNames, result.BandNames);
+        Assert.Equal(bands, result.Bands);
     }
 }

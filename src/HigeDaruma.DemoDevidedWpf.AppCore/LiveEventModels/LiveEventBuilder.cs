@@ -9,7 +9,7 @@ public sealed class LiveEventBuilder
     private DateTimeOffset _startDateTime = DateTimeOffset.MinValue;
     private DateTimeOffset _endDateTime = DateTimeOffset.MinValue;
     private string? _name;
-    private readonly List<string> _bandNames = new();
+    private readonly List<Band> _bands = new();
 
     /// <summary>
     /// コンストラクター
@@ -68,14 +68,14 @@ public sealed class LiveEventBuilder
     /// <summary>
     /// イベントの参加バンド名を追加します
     /// </summary>
-    /// <param name="bandName"></param>
+    /// <param name="band"></param>
     /// <exception cref="ArgumentException"></exception>
-    public void AddBandName(string bandName)
+    public void AddBand(Band band)
     {
-        if (string.IsNullOrWhiteSpace(bandName))
-            throw new ArgumentException("null, Empty, white space ではいけません。", nameof(bandName));
+        if (band is null)
+            throw new ArgumentNullException(nameof(band));
 
-        _bandNames.Add(bandName);
+        _bands.Add(band);
     }
 
     /// <summary>
@@ -98,7 +98,7 @@ public sealed class LiveEventBuilder
             _startDateTime,
             _endDateTime,
             _name,
-            _bandNames);
+            _bands);
 
         return liveEvent;
     }
@@ -111,6 +111,6 @@ public sealed class LiveEventBuilder
         _startDateTime = DateTimeOffset.MinValue;
         _endDateTime = DateTimeOffset.MinValue;
         _name = null;
-        _bandNames.Clear();
+        _bands.Clear();
     }
 }

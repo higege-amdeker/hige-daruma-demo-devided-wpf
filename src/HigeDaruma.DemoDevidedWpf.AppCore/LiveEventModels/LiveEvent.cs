@@ -25,7 +25,7 @@ public sealed class LiveEvent
     /// <summary>
     /// イベントに参加するバンド名の一覧の実態
     /// </summary>
-    private readonly List<string> _bandNames;
+    private readonly List<Band> _bands;
 
     /// <summary>
     /// コンストラクター
@@ -33,21 +33,21 @@ public sealed class LiveEvent
     /// <param name="startDateTime"></param>
     /// <param name="endDateTime"></param>
     /// <param name="name"></param>
-    /// <param name="bandNames"></param>
+    /// <param name="bands"></param>
     internal LiveEvent(
         DateTimeOffset startDateTime,
         DateTimeOffset endDateTime,
         string name,
-        List<string> bandNames)
+        List<Band> bands)
     {
         StartDateTime = startDateTime;
         EndDateTime = endDateTime;
         Name = name;
-        _bandNames = bandNames;
+        _bands = bands;
     }
 
     /// <summary>
     /// ライブイベントに参加するバンド名の一覧の公開用プロパティ
     /// </summary>
-    public ReadOnlyCollection<string> BandNames => _bandNames.AsReadOnly();
+    public ReadOnlyCollection<Band> Bands => _bands.AsReadOnly();
 }
