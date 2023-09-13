@@ -31,6 +31,7 @@ public partial class MainWindow : Window
 
         NameTextBox.Text = "test";
         BandNameTextBox.Text = "test";
+        NumberOfBandMemberTextBox.Text = "3";
 
         // 画面中央に表示
         WindowStartupLocation = WindowStartupLocation.CenterScreen;
@@ -84,7 +85,7 @@ public partial class MainWindow : Window
         try
         {
             string bandName = BandNameTextBox.Text;
-            int numberOfBandMember = int.Parse(BandNumberOfMemberTextBox.Text);
+            int numberOfBandMember = int.Parse(NumberOfBandMemberTextBox.Text);
             Band band = new(bandName, numberOfBandMember);
 
             _liveEventBuilder.AddBand(band);
@@ -125,13 +126,13 @@ $@"{liveEvent.StartDateTime}
         }
     }
 
-    private void BandNumberOfMemberTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+    private void NumberOfBandMemberTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
     {
         // 0-9のみ
         e.Handled = !new Regex("[0-9]").IsMatch(e.Text);
     }
 
-    private void BandNumberOfMemberTextBox_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
+    private void NumberOfBandMemberTextBox_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
     {
         // 貼り付けを許可しない
         if (e.Command == ApplicationCommands.Paste)

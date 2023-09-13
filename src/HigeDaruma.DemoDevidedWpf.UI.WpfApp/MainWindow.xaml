@@ -25,10 +25,10 @@
                     </UniformGrid>
                     <UniformGrid Rows="1" Margin="0 5">
                         <TextBox x:Name="BandNameTextBox"/>
-                        <TextBox x:Name="BandNumberOfMemberTextBox"
+                        <TextBox x:Name="NumberOfBandMemberTextBox"
                                  InputMethod.IsInputMethodEnabled="False"
-                                 PreviewTextInput="BandNumberOfMemberTextBox_PreviewTextInput"
-                                 CommandManager.PreviewExecuted="BandNumberOfMemberTextBox_PreviewExecuted"/>
+                                 PreviewTextInput="NumberOfBandMemberTextBox_PreviewTextInput"
+                                 CommandManager.PreviewExecuted="NumberOfBandMemberTextBox_PreviewExecuted"/>
                         <Button x:Name="AddBandButton" Content="AddBand" Click="AddBandButton_Click"/>
                     </UniformGrid>
                     <Button x:Name="EndButton" Content="End" Margin="0 5" Click="EndButton_Click"/>
