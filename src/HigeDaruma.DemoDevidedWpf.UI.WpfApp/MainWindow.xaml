@@ -34,6 +34,7 @@
                     <Button x:Name="EndButton" Content="End" Margin="0 5" Click="EndButton_Click"/>
                 </StackPanel>
             </GroupBox>
+            <Button x:Name="ExceptionButton" Content="Exception" Margin="0 5" Click="ExceptionButton_Click" />
         </StackPanel>
     </Grid>
 </Window>

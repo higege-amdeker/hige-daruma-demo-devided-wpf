@@ -146,4 +146,9 @@ Bands: {bandNames}";
     {
         return MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
     }
+
+    private void ExceptionButton_Click(object sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
 }
