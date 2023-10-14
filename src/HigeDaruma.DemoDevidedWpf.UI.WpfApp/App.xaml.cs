@@ -2,6 +2,7 @@
 using System.Windows;
 
 namespace HigeDaruma.DemoDevidedWpf.UI.WpfApp;
+
 /// <summary>
 /// Interaction logic for App.xaml
 /// </summary>
