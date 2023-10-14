@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Windows;
 
 namespace HigeDaruma.DemoDevidedWpf.UI.WpfApp;
@@ -20,7 +21,14 @@ public partial class App : Application
         Exception ex = (Exception)e.ExceptionObject;
 
         // TODO: エラーログの作成・通知・アプリケーションの終了などの処理を追加します
-        MessageBox.Show(ex.Message);
+        StringBuilder sb = new();
+        sb.AppendLine(ex.Message);
+        sb.AppendLine("---");
+        sb.AppendLine(ex.StackTrace);
+        string messageBoxText = sb.ToString();
+        string title = "Exception!";
+
+        MessageBox.Show(messageBoxText, title);
 
         //bool shouldExit = true;
         //if (e.IsTerminating)
