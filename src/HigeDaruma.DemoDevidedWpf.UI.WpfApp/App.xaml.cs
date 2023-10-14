@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HigeDaruma.DemoDevidedWpf.UI.WpfApp.Models;
+using System;
 using System.Text;
 using System.Windows;
 
@@ -28,7 +29,7 @@ public partial class App : Application
         string messageBoxText = sb.ToString();
         string title = "Exception!";
 
-        MessageBox.Show(messageBoxText, title);
+        ExceptionDialog.ShowDialog(messageBoxText, title);
 
         //bool shouldExit = true;
         //if (e.IsTerminating)
