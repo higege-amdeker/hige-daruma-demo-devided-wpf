@@ -2,6 +2,7 @@
 using System;
 using System.Text;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace HigeDaruma.DemoDevidedWpf.UI.WpfApp;
 
@@ -14,7 +15,27 @@ public partial class App : Application
     {
         base.OnStartup(e);
 
-        AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
+        DispatcherUnhandledException += OnDispatcherUnhandledException;
+
+        //AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
+    }
+
+    private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+    {
+        Exception ex = e.Exception;
+
+        // TODO: エラーログの作成・通知・アプリケーションの終了などの処理を追加します
+        StringBuilder sb = new();
+        sb.AppendLine(ex.Message);
+        sb.AppendLine("---");
+        sb.AppendLine(ex.StackTrace);
+        string messageBoxText = sb.ToString();
+        string title = "Exception!";
+
+        ExceptionDialog.ShowDialog(messageBoxText, title);
+
+        // アプリケーションを終了
+        Environment.Exit(1);
     }
 
     private void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
